@@ -1,9 +1,10 @@
 {
   "name": "ws-support",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "A web service transformation support tool",
-  "main": "main.js",
+  "main": "/dist/bundle.js",
   "scripts": {
+    "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +19,22 @@
   "bugs": {
     "url": "https://github.com/1394225561/ws-support/issues"
   },
-  "homepage": "https://github.com/1394225561/ws-support#readme"
+  "homepage": "https://github.com/1394225561/ws-support#readme",
+  "devDependencies": {
+    "rollup": "^3.28.1"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.22.14",
+    "@babel/plugin-transform-runtime": "^7.22.10",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.1",
+    "@rollup/plugin-terser": "^0.4.3",
+    "@babel/runtime-corejs3": "^7.22.10",
+    "crypto-js": "^4.1.1",
+    "xml2js": "^0.6.2"
+  },
+  "peerDependencies": {
+  },
+  "type": "module"
 }
