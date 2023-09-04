@@ -1,5 +1,3 @@
-import crypto from "../crypto"
-
 function urlParamsToObj (url) {
   let data
   if (url.indexOf('?') === -1) {
@@ -18,12 +16,7 @@ function urlParamsToObj (url) {
   return data
 }
 
-function getXmlData (params, method, cryptoRequest) {
-  if (params && cryptoRequest) {
-    params = {
-      cryptoParams: crypto.Encrypt(JSON.stringify(params))
-    }
-  }
+function getXmlData (params, method) {
   const xmlData =
     `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pm="http://provider.ws.wshttpproxy.nj.yunjiacloud.com/">
       <soapenv:Header/>

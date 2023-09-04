@@ -1,8 +1,8 @@
 import _slicedToArray from '@babel/runtime-corejs3/helpers/slicedToArray';
 import _indexOfInstanceProperty from '@babel/runtime-corejs3/core-js-stable/instance/index-of';
 import _forEachInstanceProperty from '@babel/runtime-corejs3/core-js-stable/instance/for-each';
-import _JSON$stringify from '@babel/runtime-corejs3/core-js-stable/json/stringify';
 import _concatInstanceProperty from '@babel/runtime-corejs3/core-js-stable/instance/concat';
+import _JSON$stringify from '@babel/runtime-corejs3/core-js-stable/json/stringify';
 import _Promise from '@babel/runtime-corejs3/core-js-stable/promise';
 import _sliceInstanceProperty from '@babel/runtime-corejs3/core-js-stable/instance/slice';
 
@@ -58,13 +58,8 @@ function urlParamsToObj$1(url) {
   }
   return data;
 }
-function getXmlData$1(params, method, cryptoRequest) {
+function getXmlData$1(params, method) {
   var _context;
-  if (params && cryptoRequest) {
-    params = {
-      cryptoParams: crypto.Encrypt(_JSON$stringify(params))
-    };
-  }
   var xmlData = _concatInstanceProperty(_context = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:pm=\"http://provider.ws.wshttpproxy.nj.yunjiacloud.com/\">\n      <soapenv:Header/>\n      <soapenv:Body>\n        <pm:execute>\n            <request>\n              <method>".concat(method, "</method>\n              <body>")).call(_context, params ? btoa(_JSON$stringify(params)) : '', "</body>\n            </request>\n        </pm:execute>\n      </soapenv:Body>\n    </soapenv:Envelope>");
   return xmlData;
 }
