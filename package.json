@@ -1,0 +1,22 @@
+{
+  "name": "ws-support",
+  "version": "1.0.0",
+  "description": "A web service transformation support tool",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1394225561/ws-support.git"
+  },
+  "keywords": [
+    "WebService"
+  ],
+  "author": "xudh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1394225561/ws-support/issues"
+  },
+  "homepage": "https://github.com/1394225561/ws-support#readme"
+}
