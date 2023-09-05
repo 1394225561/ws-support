@@ -1,6 +1,6 @@
 {
   "name": "ws-support",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A web service transformation support tool",
   "main": "/dist/bundle.js",
   "scripts": {
