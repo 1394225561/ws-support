@@ -24,7 +24,7 @@ function getXmlData (params, method) {
         <pm:execute>
             <request>
               <method>${method}</method>
-              <body>${params ? btoa(JSON.stringify(params)) : ''}</body>
+              <body>${params ? Buffer.from(JSON.stringify(params), 'utf8').toString('base64') : ''}</body>
             </request>
         </pm:execute>
       </soapenv:Body>
