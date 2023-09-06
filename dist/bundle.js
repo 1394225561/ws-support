@@ -60,7 +60,7 @@ function urlParamsToObj$1(url) {
 }
 function getXmlData$1(params, method) {
   var _context;
-  var xmlData = _concatInstanceProperty(_context = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:pm=\"http://provider.ws.wshttpproxy.nj.yunjiacloud.com/\">\n      <soapenv:Header/>\n      <soapenv:Body>\n        <pm:execute>\n            <request>\n              <method>".concat(method, "</method>\n              <body>")).call(_context, params ? btoa(_JSON$stringify(params)) : '', "</body>\n            </request>\n        </pm:execute>\n      </soapenv:Body>\n    </soapenv:Envelope>");
+  var xmlData = _concatInstanceProperty(_context = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:pm=\"http://provider.ws.wshttpproxy.nj.yunjiacloud.com/\">\n      <soapenv:Header/>\n      <soapenv:Body>\n        <pm:execute>\n            <request>\n              <method>".concat(method, "</method>\n              <body>")).call(_context, params ? Buffer.from(_JSON$stringify(params), 'utf8').toString('base64') : '', "</body>\n            </request>\n        </pm:execute>\n      </soapenv:Body>\n    </soapenv:Envelope>");
   return xmlData;
 }
 var request = {
