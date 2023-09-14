@@ -18,17 +18,15 @@ function urlParamsToObj (url) {
 
 function getXmlData (params, method) {
   const xmlData =
-    `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pm="http://provider.ws.wshttpproxy.nj.yunjiacloud.com/">
-      <soapenv:Header/>
-      <soapenv:Body>
-        <pm:execute>
-            <request>
+  `<?xml version="1.0" encoding="utf-8"?>
+  <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+      <soap:Body>
+          <request>
               <method>${method}</method>
               <body>${params ? Buffer.from(JSON.stringify(params), 'utf8').toString('base64') : ''}</body>
-            </request>
-        </pm:execute>
-      </soapenv:Body>
-    </soapenv:Envelope>`
+          </request>
+      </soap:Body>
+  </soap:Envelope>`
   return xmlData
 }
 

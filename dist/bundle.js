@@ -60,7 +60,7 @@ function urlParamsToObj$1(url) {
 }
 function getXmlData$1(params, method) {
   var _context;
-  var xmlData = _concatInstanceProperty(_context = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:pm=\"http://provider.ws.wshttpproxy.nj.yunjiacloud.com/\">\n      <soapenv:Header/>\n      <soapenv:Body>\n        <pm:execute>\n            <request>\n              <method>".concat(method, "</method>\n              <body>")).call(_context, params ? Buffer.from(_JSON$stringify(params), 'utf8').toString('base64') : '', "</body>\n            </request>\n        </pm:execute>\n      </soapenv:Body>\n    </soapenv:Envelope>");
+  var xmlData = _concatInstanceProperty(_context = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n  <soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n      <soap:Body>\n          <request>\n              <method>".concat(method, "</method>\n              <body>")).call(_context, params ? Buffer.from(_JSON$stringify(params), 'utf8').toString('base64') : '', "</body>\n          </request>\n      </soap:Body>\n  </soap:Envelope>");
   return xmlData;
 }
 var request = {
@@ -73,8 +73,8 @@ function parseXML$1(xml) {
   return new _Promise(function (resolve, reject) {
     var parser = new xml2js.Parser();
     parser.parseStringPromise(xml).then(function (result) {
-      var keys = ['soapenv:Envelope', 'soapenv:Header'];
-      var arrayKeys = ['soapenv:Body', 'response', 'body'];
+      var keys = ['soap:Envelope', 'soap:Body'];
+      var arrayKeys = ['result'];
       var keysResult = getKeysResult(result, keys);
       var arrayKeysResult = getKeysResult(keysResult, arrayKeys, 0);
       var data = Buffer.from(decodeURIComponent(arrayKeysResult || ''), 'base64').toString('utf8');

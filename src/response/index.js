@@ -4,8 +4,8 @@ function parseXML (xml) {
   return new Promise((resolve, reject) => {
     const parser = new xml2js.Parser()
     parser.parseStringPromise(xml).then((result) => {
-      const keys = ['soapenv:Envelope', 'soapenv:Header']
-      const arrayKeys = ['soapenv:Body', 'response', 'body']
+      const keys = ['soap:Envelope', 'soap:Body']
+      const arrayKeys = ['result']
       const keysResult = getKeysResult(result, keys)
       const arrayKeysResult = getKeysResult(keysResult, arrayKeys, 0)
       let data = Buffer.from(decodeURIComponent(arrayKeysResult || ''), 'base64').toString('utf8')
